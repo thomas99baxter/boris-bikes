@@ -3,7 +3,7 @@ test_docking_station = nil
 
 describe 'DockingStation' do
   before(:each) do 
-    test_docking_station = DockingStation.new()
+    test_docking_station = DockingStation.new("my_bike")
   end
 
   it "should return a bike" do
@@ -32,17 +32,9 @@ describe 'DockingStation' do
     result = test_docking_station.get_docked_bikes
     result.each do |bike|
       expect(bike.is_a? Bike).to eq true
-  end
-  end
-
-  describe "#at" do
-  before(:each) do 
-    test_docking_station = DockingStation.new()
-  end
-    it "creates an array of bikes" do
-      bike = Bike.new
-      result = docking_station.new(at: bike)
-      expect(result.at).to eq bike
     end
+  end
+  it "error testing" do
+    expect{4 / 0}.to raise_error(ZeroDivisionError)
   end
 end

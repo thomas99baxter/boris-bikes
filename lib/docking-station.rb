@@ -1,15 +1,24 @@
-require "bike"
+# require "./bike"
 
 class DockingStation
-  attr_reader :at
-  
-  def initialize(at:)
+  attr_reader :bike
+
+  def initialize(bike)
     @docked_bikes = []
+    @bike = bike
+    @max_bikes = 3
   end
   
   def release_bike 
-    bike = Bike.new
-    return bike 
+    p @max_bikes
+    if @max_bikes > 0 
+      @bike = "goose"
+      @max_bikes -= 1
+      p @max_bikes
+      return @bike
+    else 
+      raise "AIOFHAOISFHOIAHSOIHO"
+    end 
   end
 
   def dock_bike(bike)
@@ -20,3 +29,6 @@ class DockingStation
     return @docked_bikes
   end
 end
+
+dock = DockingStation.new("meow")
+dock.release_bike
