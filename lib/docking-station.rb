@@ -1,4 +1,4 @@
-# require "./bike"
+ require "bike"
 
 class DockingStation
   attr_reader :bike
@@ -6,29 +6,30 @@ class DockingStation
   def initialize(bike)
     @docked_bikes = []
     @bike = bike
-    @max_bikes = 3
+    @current_bikes = 3
+    @bike_capacity = 5
   end
   
   def release_bike 
-    p @max_bikes
-    if @max_bikes > 0 
-      @bike = "goose"
-      @max_bikes -= 1
-      p @max_bikes
+    if @current_bikes > 0 
+      @current_bikes -= 1
       return @bike
     else 
-      raise "AIOFHAOISFHOIAHSOIHO"
+      raise "No bikes in storage"
     end 
   end
 
   def dock_bike(bike)
-    @docked_bikes.push(bike)
+    if @current_bikes < @bike_capacity 
+      @docked_bikes.push(bike)
+      @current_bikes += 1
+      return bike
+    else
+      raise "No available bike storage"
+    end
   end
 
   def get_docked_bikes
-    return @docked_bikes
+    return @docked_bikes unless @docked_bikes.length == 0
   end
 end
-
-dock = DockingStation.new("meow")
-dock.release_bike
