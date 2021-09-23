@@ -1,4 +1,5 @@
 require "docking-station"
+require "bike"
 test_docking_station = nil
 CAPACITY = 20
 
@@ -29,7 +30,7 @@ describe 'DockingStation' do
   it "will push instances of bike to docking station" do
     result = test_docking_station.get_docked_bikes
     result.each do |bike|
-      expect(bike.is_a? Bike).to eq true
+      expect(bike.is_a? Bike).to eql true
     end
   end
 

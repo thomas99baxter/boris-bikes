@@ -62,7 +62,7 @@ class DockingStation
   end
 
   def get_docked_bikes
-    return @docked_bikes
+    return @docked_bikes unless @docked_bikes.length == 0
   end
 
   private
