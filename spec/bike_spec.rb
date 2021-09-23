@@ -1,4 +1,4 @@
-require "bike"
+require "bike-generator"
 test_bike = nil
 
 describe 'Bike' do
