@@ -1,5 +1,5 @@
 require "docking-station"
-require "bike"
+require "bike-generator"
 test_docking_station = nil
 CAPACITY = 20
 
